@@ -129,6 +129,7 @@ class _HomePageState extends State<HomePage> {
         builder: (context) {
           return AlertDialog(
             title: TextField(
+              keyboardType: TextInputType.phone,
               controller: indexController,
               decoration: InputDecoration(hintText: "index"),
             ),
