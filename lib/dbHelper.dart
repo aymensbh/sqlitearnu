@@ -57,13 +57,16 @@ class DBHelper {
               counter_etat TEXT,
               FOREIGN KEY (abonnee_id) REFERENCES Abonnee(abonnee_id),
               FOREIGN KEY (rue_id ) REFERENCES Rue(rue_id ))''');
+
+    await db.execute(
+        "INSERT INTO Abonnee(abonnee_id,abonnee_fullname, abonnee_type, abonnee_datebr) VALUES (NULL,'SEBIHI ABDELKADER','1','2001'),(NULL,'Thamer GS','1','2020'); INSERT INTO Tournee(tournee_id) VALUES (NULL),(NULL); INSERT INTO Rue(rue_id,tournee_id,rue_address) VALUES (NULL,1,'Amn Elhayat dallas'),(NULL,2,'8 Mai'); INSERT INTO Relveur(relveur_id,tournee_id,relveur_fullname,relveur_username,relveur_password) VALUES (NULL,1,'Gs Arnu','arnu','password'),(NULL,2,'Dje Haron','har1','password'); INSERT INTO Counter(counter_id,abonnee_id,rue_id,counter_index,counter_etat) VALUES (NULL,1,1,'123332',1),(NULL,2,2,'1231',1),(NULL,1,2,'123332',2);");
   }
 
   static executeQueries(Database db, int version) async {
     // await db.execute("DROP TABLE Counter; DROP TABLE Relveur; DROP TABLE Rue; DROP TABLE Tournee; DROP TABLE Abonnee; ");
 
     // await db.execute(
-    //     "INSERT INTO Abonnee(abonnee_id,abonnee_fullname, abonnee_type, abonnee_datebr) VALUES (NULL,'ABDO','1','2001'); INSERT INTO Tournee(tournee_id ) VALUES (NULL); INSERT INTO Rue(rue_id,tournee_id,rue_address) VALUES (NULL,1,'1014'); INSERT INTO Relveur(relveur_id,tournee_id,relveur_fullname,relveur_username,relveur_password) VALUES (NULL,1,'haron','har1','password'); INSERT INTO Counter(counter_id,abonnee_id,rue_id,counter_index) VALUES (NULL,1,1,'123332');");
+    //     "INSERT INTO Abonnee(abonnee_id,abonnee_fullname, abonnee_type, abonnee_datebr) VALUES (NULL,'SEBIHI ABDELKADER','1','2001'),(NULL,'Thamer GS','1','2020'); INSERT INTO Tournee(tournee_id) VALUES (NULL),(NULL); INSERT INTO Rue(rue_id,tournee_id,rue_address) VALUES (NULL,1,'Amn Elhayat dallas'),(NULL,2,'8 Mai'); INSERT INTO Relveur(relveur_id,tournee_id,relveur_fullname,relveur_username,relveur_password) VALUES (NULL,1,'Gs Arnu','arnu','password'),(NULL,2,'Dje Haron','har1','password'); INSERT INTO Counter(counter_id,abonnee_id,rue_id,counter_index,counter_etat) VALUES (NULL,1,1,'123332',1),(NULL,2,2,'1231',1),(NULL,1,2,'123332',2);");
   }
 
   static Future<Abonnee> saveAbonnee(Abonnee abonnee) async {
